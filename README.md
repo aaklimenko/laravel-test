@@ -42,4 +42,4 @@ To run the application in the background run:
 * `docker-compose up -d`
 
 To test the events firing to go `http://127.0.0.1:8000/`. A feedback email view is stored id database. 
-Other email views are just a standard blade views.
+Other email views are just standard blade views.
