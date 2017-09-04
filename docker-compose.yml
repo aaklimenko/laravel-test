@@ -1,0 +1,50 @@
+version: '2'
+
+services:
+  nginx:
+    image: "nginx:1.11-alpine"
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/app
+      - ./docker/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/conf/default.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - php-fpm
+
+  php-fpm:
+    build: ./docker
+    volumes:
+      - ./:/app
+      - ./docker/conf/www.conf:/etc/php/7.0/fpm/pool.d/www.conf
+    links:
+      - redis
+      - mysql
+    extends:
+      file: env-dev.yml
+      service: env
+
+  php-worker:
+    build: ./docker
+    volumes:
+      - ./:/app
+      - ./docker/conf/www.conf:/etc/php/7.0/fpm/pool.d/www.conf
+    links:
+      - redis
+      - mysql
+    extends:
+      file: env-dev.yml
+      service: env
+    command: php artisan queue:work  --tries=3
+
+  redis:
+    image: redis:latest
+
+  mysql:
+    image: mysql:5
+    volumes:
+      - ./docker/volumes/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_DATABASE=laravel
+

@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  env:
+    environment:
+      - APP_NAME="Alex Klimenko Test Task"
+      - APP_ENV=development
+      - APP_DEBUG=true
+      - APP_KEY=base64:clUhV/utVLAedCyE6cgIfArVIu3nkzX2Qi3fJlEDaHE=
+      - APP_URL=http://127.0.0.1:8000/
+
+      - MAIL_SALES_ADDRESS=alex.alex.klimenko@gmail.com
+      - TEST_EMAIL_ADDRESS=alex.alex.klimenko@gmail.com
+
+      - MAIL_FROM_ADDRESS=postmaster@sandboxb2c28a2d296b4a3bb70ecf1f1017a8f2.mailgun.org
+      - MAIL_HOST=smtp.mailgun.org
+      - MAIL_USERNAME=postmaster@sandboxb2c28a2d296b4a3bb70ecf1f1017a8f2.mailgun.org
+      - MAIL_PASSWORD=cc35ab40b380bb7811ae6d59a01daa56
+      - MAIL_DRIVER=mailgun
+
+      - MAILGUN_DOMAIN=sandboxb2c28a2d296b4a3bb70ecf1f1017a8f2.mailgun.org
+      - MAILGUN_SECRET=key-e34725f677388f1a49ad51398baaa29d
+
+      - QUEUE_DRIVER=redis
+      - REDIS_HOST=redis
+
+      - DB_HOST=mysql
+      - DB_USERNAME=root
+      - DB_DATABASE=laravel
+      - DB_PASSWORD=test
+
