@@ -33,10 +33,10 @@ To run the application do the following:
 * `docker-compose -f docker-build.yml up`
 * `docker-compose up`
 
-And while the application running do in a separate console:
+And while the application is running run in a separate console:
 
 * `docker-compose run php-fpm php artisan migrate`
 
-To run the application in the background run 
+To run the application in the background run:
 
 * `docker-compose up -d`
