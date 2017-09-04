@@ -30,6 +30,13 @@ The following functionality has not been implemented:
 
 To run the application do the following:
 
-* `docker-compose -f docker-build.yml`
+* `docker-compose -f docker-build.yml up`
 * `docker-compose up`
+
+And while the application running do in a separate console:
+
 * `docker-compose run php-fpm php artisan migrate`
+
+To run the application in the background run 
+
+* `docker-compose up -d`
