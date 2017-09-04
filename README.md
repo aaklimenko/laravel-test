@@ -14,6 +14,9 @@ The following functionality has not been implemented:
 * `Notification processor` - queued listener that subscribes to a specific event and runs business logic (sending email, for instance)
 
 * `App\Modules\Notifications\EventServiceProvider` - a service provider that binds notification processors to events. 
+We use a separate EventServiceProvider in order to encapsulate notification routing logic. 
+If we use standard application EventServiceProvider, changing routing in the main application
+could affect logic in module.
 
 * `Template providers` - entities that provide template strings for notifications.
 
